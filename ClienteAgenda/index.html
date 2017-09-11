@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/controllers/contatos.js"></script>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.min.css">
+    <title>Agenda</title>
+</head>
+
+<body class="container">
+    <div ng-app="myApp" ng-controller="contatosCtrl">
+        <p ng-show="erro" class="alert alert-danger">{{erro}}</p>
+        <p ng-show="sucesso" class="alert alert-success">{{sucesso}}</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form ng-submit="salvaContato()">
+                    <div class="form-group">
+                        Nome:<input class="form-control" ng-model="nome" name="nome" />
+                    </div>
+                    <div class="form-group">
+                        Telefone:<input class="form-control" ng-model="telefone">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Salvar" />
+                </form>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="text-center">Nome</th>
+                        <th class="text-center">Telefone</th>
+                    </tr>
+                    <tr ng-repeat="c in contatos">
+                        <td>{{ c.nome }}</td>
+                        <td>{{ c.telefone }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
