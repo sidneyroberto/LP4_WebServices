@@ -1,0 +1,55 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+        <h2>{{ titulo }}</h2>
+    </div>
+
+
+
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <form #frm="ngForm" (ngSubmit)="cadastrar(frm)">
+                <div class="ui-g-12 ui-fluid">
+                    <label>Descrição:</label>
+                    <input pInputText name="descricao" ngModel [required]="true">
+                </div>
+                <div class="ui-g-4 ui-sm-12 ui-fluid">
+                    <label>Quantidade em estoque:</label>
+                    <p-spinner size="30" name="quantidadeEmEstoque" ngModel [required]="true"></p-spinner>
+                </div>
+                <div class="ui-g-4 ui-sm-12 ui-fluid">
+                    <label>Preço unitário:</label>
+                    <input pInputText currencyMask name="precoUnitario" ngModel [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" [required]="true"
+                    />
+                </div>
+                <div class="ui-g-4 ui-sm-12 ui-fluid">
+                    <label>Data da última remessa:</label>
+                    <p-calendar name="dataUltimaRemessa" dateFormat="dd/mm/yy" [locale]="ptLocale" ngModel [required]="true"></p-calendar>
+                </div>
+                <div class="ui-g-12">
+                    <button pButton type="submit" label="Cadastrar" [disabled]="frm.invalid"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-dataTable [value]="produtos" emptyMessage="Nenhum produto cadastrado">
+                <p-column field="descricao" header="Descrição"></p-column>
+                <p-column field="quantidadeEmEstoque" header="Quantidade em estoque"></p-column>
+                <p-column field="precoUnitario" header="Preço unitário"></p-column>
+                <p-column field="dataUltimaRemessa" header="Última remessa">
+                    <ng-template pTemplate="body" let-produto="rowData">
+                        {{ produto.dataUltimaRemessa | date: 'dd/MM/yyyy' }}
+                    </ng-template>
+                </p-column>
+                <p-column header="Remover">
+                    <ng-template let-produto="rowData" pTemplate="body">
+                        <div class="alinhamentoCelulas">
+                            <button type="button" pButton (click)="remover(frm, produto)" icon="fa-trash"></button>
+                        </div>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+    </div>

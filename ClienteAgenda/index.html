@@ -18,10 +18,20 @@
             <div class="col-md-6">
                 <form ng-submit="salvaContato()">
                     <div class="form-group">
-                        Nome:<input class="form-control" ng-model="nome" name="nome" />
+                        <label for="nome">Nome(*):</label>
+                        <input class="form-control" ng-model="nome" name="nome" required="true" />
                     </div>
                     <div class="form-group">
-                        Telefone:<input class="form-control" ng-model="telefone">
+                        <label for="telefone">Telefone(*):</label>
+                        <input class="form-control" ng-model="telefone" name="telefone" required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input class="form-control" ng-model="email" name="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço:</label>
+                        <textarea class="form-control" ng-model="endereco" name="endereco"></textarea>
                     </div>
                     <input class="btn btn-primary" type="submit" value="Salvar" />
                 </form>
@@ -36,10 +46,18 @@
                     <tr>
                         <th class="text-center">Nome</th>
                         <th class="text-center">Telefone</th>
+                        <th class="text-center">Endereço</th>
+                        <th class="text-center">E-mail</th>
+                        <th class="text-center">Ação</th>
                     </tr>
                     <tr ng-repeat="c in contatos">
                         <td>{{ c.nome }}</td>
                         <td>{{ c.telefone }}</td>
+                        <td>{{ c.endereco }}</td>
+                        <td>{{ c.email }}</td>
+                        <td>
+                            <button ng-click="removeContato(c._id)" class="btn btn-link glyphicon glyphicon-trash"></button>
+                        </td>
                     </tr>
                 </table>
             </div>

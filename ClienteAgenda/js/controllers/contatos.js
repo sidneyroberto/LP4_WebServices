@@ -12,11 +12,15 @@ app.controller('contatosCtrl', function ($scope, $http) {
 
     $scope.nome = null;
     $scope.telefone = null;
+    $scope.endereco = null;
+    $scope.email = null;
 
     $scope.salvaContato = function () {
         var dados = {
             nome: $scope.nome,
-            telefone: $scope.telefone
+            telefone: $scope.telefone,
+            endereco: $scope.endereco,
+            email: $scope.email
         };
         $http.post("http://localhost:3000/contatos", JSON.stringify(dados))
             .then(
@@ -29,5 +33,18 @@ app.controller('contatosCtrl', function ($scope, $http) {
             }
             );
 
+    };
+
+    $scope.removeContato = function (idContato) {
+        $http.delete("http://localhost:3000/contatos/" + idContato)
+            .then(
+            function (sucesso) {
+                $scope.sucesso = 'Contato removido';
+                carregaContatos();
+            },
+            function (erro) {
+                $scope.erro = 'Ocorreu um erro ao tentar remover o contato';
+            }
+            );
     };
 });

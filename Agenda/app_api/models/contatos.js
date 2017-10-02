@@ -8,6 +8,12 @@ var contato = new mongoose.Schema({
     telefone: {
         type: String,
         required: true
+    },
+    endereco: {
+        type: String
+    },
+    email: {
+        type: String
     }
 });
 
