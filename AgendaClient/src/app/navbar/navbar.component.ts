@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  nomeLoja = 'Loja LP4/Web Services';
+  titulo = 'Agenda';
 
   constructor() { }
 

@@ -1,0 +1,17 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <h2>{{ titulo }}</h2>
+  </div>
+
+  <div class="ui-g">
+    <form>
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Nome:</label>
+        <input pInputText name="nome" ngModel [required]="true">
+      </div>
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Telefone:</label>
+        <p-inputMask mask="(99) 99999-9999" name="telefone" placeholder="(99) 99999-9999" ngModel [required]="true"></p-inputMask>
+      </div>
+    </form>
+  </div>
