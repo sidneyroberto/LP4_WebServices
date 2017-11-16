@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
-import { ContatoService } from '../contato/contato.service';
+import { ContatoService } from '../service/contato.service';
 import { Contato } from '../contato/contato';
 
 import { Message } from 'primeng/components/common/api';
