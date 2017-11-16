@@ -13,15 +13,15 @@
         </div>
         <div class="ui-g-6 ui-sm-12 ui-fluid">
           <label>Telefone:</label>
-          <p-inputMask mask="(99) 99999-9999" name="telefone" placeholder="(99) 99999-9999" ngModel required></p-inputMask>
+          <p-inputMask mask="(99) 9999-9999" name="telefone" placeholder="(99) 9999-9999" ngModel required></p-inputMask>
         </div>
         <div class="ui-g-6 ui-sm-12 ui-fluid">
           <label>Endereço:</label>
-          <input pInputText name="endereco" ngModel required>
+          <input pInputText name="endereco" ngModel>
         </div>
         <div class="ui-g-6 ui-sm-12 ui-fluid">
           <label>E-mail:</label>
-          <input type="email" pInputText name="email" ngModel required email>
+          <input type="email" pInputText name="email" ngModel email>
         </div>
         <div class="ui-g-12">
           <button pButton type="submit" label="Cadastrar" [disabled]="frm.invalid"></button>
