@@ -13,6 +13,32 @@ module.exports.buscaTodos = function (req, res) {
         );
 };
 
+module.exports.busca = function (req, res) {
+    Contato.findById(req.params.id).exec()
+        .then(
+        function (contato) {
+            res.json(contato);
+        },
+        function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        }
+        );
+};
+
+module.exports.atualiza = function (req, res) {
+    Contato.findByIdAndUpdate(req.body._id, req.body).exec()
+        .then(
+        function (contato) {
+            res.json(contato);
+        },
+        function (erro) {
+            console.error(erro);
+            res.status(500).json(erro);
+        }
+        );
+};
+
 module.exports.salva = function (req, res) {
     Contato.create(req.body)
         .then(

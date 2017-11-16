@@ -2,3 +2,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.navbar {
+    padding: 20px 10px;
+    background-color: #19B5FE;
+    color: #fff;
+    font-size: 150%;
+}

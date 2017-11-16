@@ -1,0 +1,31 @@
+<div class="navbar">
+  {{ titulo }}
+</div>
+
+<div class="ui-g">
+  <div class="ui-g-12">
+    <p-messages [(value)]="mensagens"></p-messages>
+    <form #frm="ngForm" (ngSubmit)="editar(frm)">
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Nome:</label>
+        <input pInputText name="nome" [(ngModel)]="contato.nome" required>
+      </div>
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Telefone:</label>
+        <p-inputMask mask="(99) 99999-9999" name="telefone" [(ngModel)]="contato.telefone" placeholder="(99) 99999-9999" required></p-inputMask>
+      </div>
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Endereço:</label>
+        <input pInputText name="endereco" [(ngModel)]="contato.endereco" required>
+      </div>
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>E-mail:</label>
+        <input type="email" pInputText name="email" [(ngModel)]="contato.email" required email>
+      </div>
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Editar" [disabled]="frm.invalid"></button>
+        <button pButton type="button" (click)="voltar()" label="Voltar"></button>
+      </div>
+    </form>
+  </div>
+</div>

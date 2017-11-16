@@ -12,7 +12,9 @@ import {
   DataTableModule,
   InputTextModule,
   SpinnerModule,
-  CalendarModule
+  CalendarModule,
+  ConfirmDialogModule,
+  ConfirmationService
 } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
@@ -34,10 +36,12 @@ import { ProdutoCadastroComponent } from './produto-cadastro/produto-cadastro.co
     DataTableModule,
     InputTextModule,
     SpinnerModule,
-    CalendarModule
+    CalendarModule,
+    ConfirmDialogModule
   ],
   providers: [
-    ProdutoService
+    ProdutoService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })

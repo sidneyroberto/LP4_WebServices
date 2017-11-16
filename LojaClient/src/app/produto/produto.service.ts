@@ -17,6 +17,10 @@ export class ProdutoService {
     return this.http.post(this.urlServicos, produto);
   }
 
+  editar(produto: any) {
+    return this.http.put(this.urlServicos, produto);
+  }
+
   remover(id: any) {
     return this.http.delete(this.urlServicos + '/' + id);
   }

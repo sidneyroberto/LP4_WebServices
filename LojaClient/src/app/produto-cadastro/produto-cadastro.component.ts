@@ -4,6 +4,8 @@ import { FormControl } from '@angular/forms';
 
 import { ProdutoService } from '../produto/produto.service';
 
+import { ConfirmationService } from 'primeng/primeng';
+
 @Component({
   selector: 'app-produto-cadastro',
   templateUrl: './produto-cadastro.component.html',
@@ -42,7 +44,7 @@ export class ProdutoCadastroComponent implements OnInit {
 
   titulo = 'Produtos';
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.consultar();
@@ -62,9 +64,17 @@ export class ProdutoCadastroComponent implements OnInit {
   }
 
   remover(formulario, produto) {
-    this.produtoService.remover(produto._id).subscribe(() => {
-      formulario.reset();
-      this.consultar();
+    this.confirmationService.confirm({
+      message: 'Deseja realmente remover o produto "' + produto.descricao + '"?',
+      header: 'Confirmação',
+      icon: 'fa fa-trash',
+      accept: () => {
+        this.produtoService.remover(produto._id).subscribe(() => {
+          formulario.reset();
+          this.consultar();
+        });
+      },
+      reject: () => { }
     });
   }
 
