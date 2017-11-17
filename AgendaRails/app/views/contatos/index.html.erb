@@ -1,0 +1,25 @@
+<%= render 'shared/page_title', titulo: 'Contatos' %>
+
+<div class="row">
+  <table class="table">
+    <tr>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Telefone</th>
+      <th>Endereço</th>
+      <th colspan="2">Ações</th>
+    </tr>
+
+    <% @contatos.each do |contato| %>
+    <tr>
+      <td><%= contato.nome %></td>
+      <td><%= contato.email %></td>
+      <td><%= contato.telefone %></td>
+      <td><%= contato.endereco %></td>
+      <td><%= link_to 'Editar', edit_contato_path(contato) %></td>
+      <td><%= link_to 'Deletar', contato_path(contato), method: :delete, data: {confirm: 'Tem certeza?'} %></td>
+    </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Adicionar Contato', new_contato_path(), class: "btn btn-primary" %>
+</div>
