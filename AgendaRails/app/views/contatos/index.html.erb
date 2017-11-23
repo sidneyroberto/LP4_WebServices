@@ -14,7 +14,7 @@
     <tr>
       <td><%= contato.nome %></td>
       <td><%= contato.email %></td>
-      <td><%= contato.telefone %></td>
+      <td class="telefone"><%= contato.telefone %></td>
       <td><%= contato.endereco %></td>
       <td><%= link_to 'Editar', edit_contato_path(contato) %></td>
       <td><%= link_to 'Deletar', contato_path(contato), method: :delete, data: {confirm: 'Tem certeza?'} %></td>
