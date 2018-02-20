@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular/angular.min.js"></script>
+    <script src="js/loja_controller.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css">
+    <title>Produtos</title>
+</head>
+
+<body class="container">
+    <div ng-app="LojaClient" ng-controller="LojaController">
+        <p ng-show="erro" class="alert alert-danger">{{erro}}</p>
+        <p ng-show="sucesso" class="alert alert-success">{{sucesso}}</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form ng-submit="salvaProduto()">
+                    <div class="form-group">
+                        <label for="descricao">Descrição(*):</label>
+                        <textarea class="form-control" ng-model="descricao" name="descricao" required="true"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade em estoque(*):</label>
+                        <input type="number" class="form-control" ng-model="quantidadeEmEstoque" name="quantidade" required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="preco">Preço unitário(*):</label>
+                        <input class="form-control" ng-model="precoUnitario" name="preco" />
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data da última remessa(*):</label>
+                        <input type="date" class="form-control" ng-model="dataUltimaRemessa" name="data" />
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Salvar" />
+                </form>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-hover">
+                    <tr>
+                        <th class="text-center">Descrição</th>
+                        <th class="text-center">Quantidade</th>
+                        <th class="text-center">Preço unitário</th>
+                        <th class="text-center">Data da última remessa</th>
+                        <th class="text-center">Ação</th>
+                    </tr>
+                    <tr ng-repeat="p in produtos">
+                        <td>{{ p.descricao }}</td>
+                        <td>{{ p.quantidadeEmEstoque }}</td>
+                        <td>{{ p.precoUnitario }}</td>
+                        <td>{{ p.dataUltimaRemessa | date: "dd/MM/yyyy" }}</td>
+                        <td>
+                            <button ng-click="removeProduto(p._id)" class="btn btn-link far fa-trash-alt"></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
