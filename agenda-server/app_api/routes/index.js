@@ -6,6 +6,6 @@ router.get('/', function (req, res, next) {
   res.json('Olá!');
 });
 
-router.get('/', contatoCtrl.buscaTodos);
+router.get('/contatos', contatoCtrl.buscaTodos);
 
 module.exports = router;

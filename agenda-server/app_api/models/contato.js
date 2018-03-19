@@ -6,7 +6,7 @@ var contato = new mongoose.Schema({
         required: true
     },
     telefone: {
-        type: Number,
+        type: String,
         required: true
     },
     endereco: {
