@@ -1,0 +1,13 @@
+<div class="ui-g">
+  <h3>Contatos</h3>
+</div>
+
+<div class="ui-g">
+  <div class="ui-md-6">
+    <p-dataTable [value]="contatos" emptyMessage="Nenhum contato cadastrado">
+      <p-column field="nome" header="Nome" [filter]="true" filterMatchMode="contains"></p-column>
+      <p-column field="telefone" header="Telefone"></p-column>
+      <p-column field="endereco" header="Endereço"></p-column>
+    </p-dataTable>
+  </div>
+</div>
